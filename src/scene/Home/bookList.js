@@ -29,7 +29,8 @@ export default class BookList extends React.Component {
             <View style={styles.classify}>
               <FlatList
                 data={this.props.booklistArr}
-                horizontal="true"
+                horizontal={true}
+                showsHorizontalScrollIndicator={false}
                 // initialNumToRender="4"
                 renderItem={({item, index}) => (
                   <TouchableOpacity onPress={()=>{

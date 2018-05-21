@@ -2,18 +2,16 @@ import React, {
   Component
 } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
-  TextInput,
   ScrollView,
   FlatList,
-  SectionList,
   Image,
   StatusBar,
   Dimensions,
   Button,
+  TouchableOpacity
 } from 'react-native';
 import {
   StackNavigator,
@@ -39,7 +37,10 @@ export default class BookItem extends React.Component {
   bookItem() {
   	let bookItemArr = this.props.booklistArr.map((value,index) => {
   		return (
-  			<View style={styles.item} key={index}>
+        <TouchableOpacity 
+          onPress={()=> this.props.navigation.navigate('Detail',{id: value.id})} 
+          key = { index } 
+          style={styles.item}>
   				<Image style = {styles.img} 
                        source = {{uri:value.imageUrl}} />
                 <View style={styles.detail}>
@@ -59,7 +60,7 @@ export default class BookItem extends React.Component {
 		  				</View>
 	  				</View>
 	  			</View>
-  			</View>
+  			</TouchableOpacity>
   		)
   	});
   	return bookItemArr;

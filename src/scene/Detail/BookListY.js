@@ -39,7 +39,7 @@ export default class BookItem extends React.Component {
   bookItem() {
   	let bookItemArr = this.props.booklistArr.map((value,index) => {
   		return (
-  			<View style={styles.item}>
+  			<View style={styles.item} key={index}>
   				<Image style = {styles.img} 
                        source = {{uri:value.imageUrl}} />
                 <View style={styles.detail}>

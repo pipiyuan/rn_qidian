@@ -13,9 +13,19 @@ import Swiper from 'react-native-swiper';
 import Util from '../../common/utils';
 
 let imageArr = [
-      require('../../assets/Image/Guide/guide_01.png'),
-      require('../../assets/Image/Guide/guide_02.png'),
-      require('../../assets/Image/Guide/guide_03.png')
+      {
+        img: require('../../assets/Image/Guide/guide_01.png'),
+        bgImage: require('../../assets/Image/Guide/guide_bg.png'),
+      },
+      {
+        img: require('../../assets/Image/Guide/guide_02.png'),
+        bgImage: require('../../assets/Image/Guide/guide_bg.png'),
+      },
+      {
+        img: require('../../assets/Image/Guide/guide_03.png'),
+        bgImage: require('../../assets/Image/Guide/guide_bg.png'),
+        btnTxt: '开始探索'
+      },
     ]
 
 export default class extends Component {
@@ -32,61 +42,52 @@ export default class extends Component {
     //   this.setState({
     //     animating: animating
     //   })
-    // },3000) 
-    
+    // },3000)
+
+  }
+  guideItem(){
+      let guideArr = imageArr.map((item,index)=>{
+          let btn = null;
+          if (item.btnTxt) {
+              btn = (
+                  <View style={styles.buttonP}>
+                      <TouchableOpacity
+                          style={styles.button}
+                          onPress={()=> this.props.navigation.navigate('Home')}
+                      >
+                          <Text style={styles.btnTxt} title=''>{item.btnTxt}</Text>
+                      </TouchableOpacity>
+                  </View>
+              )
+          }
+          return (
+              <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+                <View style={styles.bg}>
+                  <Image style={styles.bgImage}
+                          resizeMode='cover'
+                          source={item.bgImage}
+                  />
+                </View>
+                <View style={styles.slide}>
+                  <Image resizeMode='contain' style={styles.image} source={item.img}/>
+                </View>
+                { btn }
+              </View>
+          )
+      })
+      return guideArr;
   }
   render() {
     return (
-      <Swiper 
-        paginationStyle = {{bottom: 20}} 
-        loop={false}   
+      <Swiper
+        paginationStyle = {{bottom: 20}}
+        loop={false}
         autoplay = {false}
         showsButtons={false}
         // autoplayTimeout={4}
         showsPagination={false}
       >
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <View style={styles.bg}><Image style={styles.bgImage} resizeMode='cover'
-                                         source={require('../../assets/Image/Guide/guide_bg.png')}/></View>
-          <View style={styles.slide}>
-            <Image resizeMode='contain' style={styles.image} source={require('../../assets/Image/Guide/guide_01.png')}/>
-          </View>
-          <View style={styles.buttonP}>
-            <Image resizeMode='cover' style={styles.logo} source={require('../../assets/Image/Guide/logo.png')}/>
-          </View>
-          <View style={styles.container}>   
-      </View>
-        </View>
-
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <View style={styles.bg}><Image style={styles.bgImage} resizeMode='cover'
-                                         source={require('../../assets/Image/Guide/guide_bg.png')}/></View>
-          <View style={styles.slide}>
-            <Image resizeMode='contain' style={styles.image} source={require('../../assets/Image/Guide/guide_02.png')}/>
-          </View>
-          <View style={styles.buttonP}>
-            <Image resizeMode='cover' style={styles.logo} source={require('../../assets/Image/Guide/logo.png')}/>
-          </View>
-        </View>
-
-        <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
-          <View style={styles.bg}><Image style={styles.bgImage} resizeMode='cover'
-                                         source={require('../../assets/Image/Guide/guide_bg.png')}/></View>
-          <View style={styles.slide}>
-            <Image resizeMode='contain' style={styles.image} source={require('../../assets/Image/Guide/guide_03.png')}/>
-          </View>
-          <View style={styles.buttonP}>
-            <TouchableOpacity 
-              style={styles.button} 
-              onPress={()=> this.props.navigation.navigate('Home')}
-            >
-              <Text style={styles.btnTxt} title=''>开始探索</Text>
-            </TouchableOpacity>
-          </View>
-          <View style={styles.buttonP}>
-            <Image resizeMode='cover' style={styles.logo} source={require('../../assets/Image/Guide/logo.png')}/>
-          </View>
-        </View>
+        {this.guideItem()}
       </Swiper>
     );
   }
@@ -147,5 +148,3 @@ var styles = StyleSheet.create({
     marginTop: -10
   }
 });
-
-

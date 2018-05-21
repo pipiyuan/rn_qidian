@@ -14,6 +14,7 @@ import {
   StatusBar,
   Dimensions,
   Button,
+  TouchableOpacity,
 } from 'react-native';
 import {
   StackNavigator,
@@ -73,15 +74,23 @@ export default class HomeScreen extends React.Component {
     })
   }
 
-  render() {
-    
+  render_swiper(){
     let images = [
       require('../../img/q1.jpeg'),
       require('../../img/q2.jpeg'),
       require('../../img/q3.jpeg'),
       require('../../img/q4.jpeg'),
     ]
+    return images.map((value, index) => {
+      return (
+        <View>
+            <Image style = {styles.img} source = {value} key = { index } />
+        </View>
+      )
+    });
+  }
 
+  render_bookClassify(){
     let bookType = [
       {name: '分类'},
       {name: '排行榜'},
@@ -89,36 +98,31 @@ export default class HomeScreen extends React.Component {
       {name: '完本'},
       {name: '大神'},
     ]
-
-    let ImgView = images.map((value, index) => {
-      return (
-        <View>
-            <Image style = {styles.img} source = {value} key = { index } />
-        </View>
-      )
-    })
-
-    let bookTypeView = bookType.map((item, index) => {
+    return bookType.map((item, index) => {
       return (
         <View style={styles.classify_item} key = { index }>
             <Image style = {styles.imgicon} source = {require('../../img/icecream-11.png')} />
             <Text style={{color: '#333', fontSize: 14, fontWeight: 'bold'}}>{item.name}</Text>
         </View>
       )
-    })
+    });
+  }
 
-    //console.log('navigation',this.props.navigation)
-
+  render() {
     return (
       <ScrollView contentContainerStyle={styles.container}>
-        <Swiper height = {150} paginationStyle = {{bottom:10}} autoplay = {true}>
-            {ImgView}
-        </Swiper>
-        <View style={styles.search}>
-            <Text style={{color: '#aaa', fontSize: 12}}>超神机械师</Text>
+        <View style={styles.swiper_search}>
+          <Swiper height = {150} paginationStyle = {{bottom:10}} autoplay = {true}>
+              {this.render_swiper()}
+          </Swiper>
+          <TouchableOpacity activeOpacity={0.6} onPress={() => this.props.navigation.navigate('Search')}>
+            <View style={styles.search}>
+                <Text style={{color: '#aaa', fontSize: 12}}>超神机械师</Text>
+            </View>
+          </TouchableOpacity>
         </View>
         <View style={styles.classify}>
-          {bookTypeView}
+          {this.render_bookClassify()}
         </View>
         <View>
           <BookList title="热门小说" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(0,6)} /> 
@@ -142,10 +146,15 @@ const styles = StyleSheet.create({
     // height: 100,
     // overflow:'scroll',
   },
+  swiper_search:{
+    paddingLeft:10,
+    paddingRight:10,
+    paddingTop:10,
+  },
   img: {
     height: 150,
-    width: Dimensions.get('window').width,
-    resizeMode: 'contain'
+    width: Dimensions.get('window').width-20,
+    resizeMode: 'stretch'
   },
   search: {
     backgroundColor: '#fff',
@@ -156,8 +165,8 @@ const styles = StyleSheet.create({
     borderRadius: 6,
     alignItems: 'center',
     justifyContent: 'center',
-    margin: 6,
-    // marginLeft: 8
+    marginTop:6,
+    marginBottom:6
   },
   classify:{
     backgroundColor: '#fff',

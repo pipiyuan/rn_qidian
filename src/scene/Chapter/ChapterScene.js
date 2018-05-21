@@ -62,7 +62,7 @@ export default class ChapterScreen extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar
-          hidden="true"
+          hidden={true}
         />
         <View style={[styles.topBtn,this.state.barStatus?styles.hiddenBar:'']}>
           <View style={{flexDirection:'row',alignItems:'center',paddingLeft:10}}>
@@ -91,7 +91,7 @@ export default class ChapterScreen extends React.Component {
           source={{html: this.state.chapterData, baseUrl:''}}
           javaScriptEnabled={true}
           domStorageEnabled={true}
-          startInLoadingState={true}
+          startInLoadingState={false}
           scalesPageToFit={this.state.scalesPageToFit}
         />
       </View>
@@ -124,8 +124,8 @@ const styles = StyleSheet.create({
   },
   middleTouch:{
     width:width,
-    // height:height/4,
-    height:0,
+    height:height/4,
+    // height:0,
     position:'absolute',
     zIndex:10,
     top:height/3,

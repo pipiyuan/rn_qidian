@@ -19,7 +19,8 @@ import Icon from 'react-native-vector-icons/icomoon';
 
 import API from '../../api.js';
 import BookInfo from '../../common/bookInfo';
-import BookListY from './BookListY.js';
+// import BookListY from './BookListY.js';
+import BookListY from '../Home/BookListY.js';
 import Book from '../../common/book';
 
 export default class DetailScreen extends React.Component {

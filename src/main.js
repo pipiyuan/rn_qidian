@@ -20,8 +20,10 @@ import {
 } from 'react-native';
 import { StackNavigator , TabNavigator} from 'react-navigation';
 import Icon from 'react-native-vector-icons/icomoon';
+import SplashScreen from 'react-native-splash-screen';
 
 import HomeScreen from './scene/Home/HomeScene';
+import SearchScene from './scene/Search/SearchScene';
 import DetailScreen from './scene/Detail/DetailScene';
 import ChapterScreen from './scene/Chapter/ChapterScene';
 import CatalogueScene from './scene/Catalogue/CatalogueScene';
@@ -33,7 +35,9 @@ class RootScene extends React.Component {
   static navigationOptions = {
     // title: 'Home',
   }
-
+  componentDidMount() {
+    SplashScreen.hide();
+  }
   render() {
     return (
       <Navigator />
@@ -58,20 +62,27 @@ const Tabs = TabNavigator({
 
 const Navigator = StackNavigator(
   {
-    
-    Guide: {
-      screen: GuideScene,
+    initialRouteName: {
+      screen:GuideScene,
       navigationOptions: {
-        header: null
-      }
+        header:null,
+        // headerTitle: 'Home',
+        // headerTintColor: 'pink',
+        // headerStyle:{
+        //   backgroundColor:'gray'
+        // }
+      },
     },
     Home: {
       screen: HomeScreen,
       navigationOptions:{
-        header: null
+        // header: null
         // headerTitle:'Home',
         // headerBackTitle:'首页',
       }
+    },
+    Search: {
+      screen: SearchScene,
     },
     Detail: {
       screen: DetailScreen,
@@ -98,11 +109,6 @@ const Navigator = StackNavigator(
       screen: Test,
     },
   },
-  {
-    initialRouteName: 'Guide',
-  }
 );
 
 export default RootScene
-
-

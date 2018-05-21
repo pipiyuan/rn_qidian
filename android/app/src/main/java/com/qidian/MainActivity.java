@@ -1,7 +1,8 @@
 package com.qidian;
 
+import android.os.Bundle;
 import com.facebook.react.ReactActivity;
-import com.oblador.vectoricons.VectorIconsPackage;
+import org.devio.rn.splashscreen.SplashScreen;
 
 public class MainActivity extends ReactActivity {
 
@@ -12,5 +13,10 @@ public class MainActivity extends ReactActivity {
     @Override
     protected String getMainComponentName() {
         return "qidian";
+    }
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        SplashScreen.show(this,true);    // true 为全屏
+        super.onCreate(savedInstanceState);
     }
 }
