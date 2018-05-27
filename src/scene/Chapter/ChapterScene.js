@@ -12,10 +12,10 @@ import {
   TouchableOpacity,
   StatusBar
 } from 'react-native';
-import Icon from 'react-native-vector-icons/icomoon';
+import Icon from 'qidian/src/assets/Fonts/iconfont';
 let {height, width} = Dimensions.get('window');
 
-import API from '../../api.js';
+import API from 'qidian/src/config/api.js';
 
 export default class ChapterScreen extends React.Component {
   // static navigationOptions = {
@@ -66,22 +66,22 @@ export default class ChapterScreen extends React.Component {
         />
         <View style={[styles.topBtn,this.state.barStatus?styles.hiddenBar:'']}>
           <View style={{flexDirection:'row',alignItems:'center',paddingLeft:10}}>
-            <Icon name="icomoon-menu" size={22} color="#f7f7f7" />
+            <Icon name="iconfont-menu" size={22} color="#f7f7f7" />
           </View>
         </View>
         <TouchableOpacity style={styles.middleTouch} onPress={()=>this.onPress_middleTouch()}>
         </TouchableOpacity>
         <View style={[styles.bottomBtn,this.state.barStatus?styles.hiddenBar:'']}>
           <View>
-            <Icon name="icomoon-menu" size={22} color="#f7f7f7" />
+            <Icon name="iconfont-menu" size={22} color="#f7f7f7" />
             <Text style={styles.btnText}>目录</Text>
           </View>
           <View>
-            <Icon name="icomoon-font" size={22} color="#f7f7f7" />
+            <Icon name="iconfont-font" size={22} color="#f7f7f7" />
             <Text style={styles.btnText}>字体</Text>
           </View>
           <View>
-            <Icon name="icomoon-night" size={22} color="#f7f7f7" />
+            <Icon name="iconfont-night" size={22} color="#f7f7f7" />
             <Text style={styles.btnText}>夜间</Text>
           </View>
         </View>
@@ -152,7 +152,3 @@ const styles = StyleSheet.create({
     lineHeight: 24
   }
 });
-
-
-
-

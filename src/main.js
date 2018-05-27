@@ -1,25 +1,10 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
 
 import React, { Component } from 'react';
 import {
-  AppRegistry,
-  StyleSheet,
-  Text,
   View,
-  TextInput,
-  ScrollView,
-  FlatList,
-  SectionList,
-  Image,
-  Button,
-  StatusBar
 } from 'react-native';
 import { StackNavigator , TabNavigator} from 'react-navigation';
-import Icon from 'react-native-vector-icons/icomoon';
+import Icon from 'qidian/src/assets/Fonts/iconfont';
 import SplashScreen from 'react-native-splash-screen';
 
 import HomeScreen from './scene/Home/HomeScene';
@@ -27,9 +12,22 @@ import SearchScene from './scene/Search/SearchScene';
 import DetailScreen from './scene/Detail/DetailScene';
 import ChapterScreen from './scene/Chapter/ChapterScene';
 import CatalogueScene from './scene/Catalogue/CatalogueScene';
-import Test from './test';
 import GuideScene from './scene/Guide/GuideScene';
+// import Test from './test';
 
+import Storage from 'qidian/src/config/storage.js';
+
+//storege 全局变量
+global.storage = Storage;
+
+let isHide_guideScene
+storage
+    .load({
+        key: 'guideSceneStatus'
+    }).then(res =>{
+        console.log()
+        isHide_guideScene = res.isHide_guideScene;
+    })
 
 class RootScene extends React.Component {
   static navigationOptions = {
@@ -45,6 +43,7 @@ class RootScene extends React.Component {
   }
 }
 
+/*
 const Tabs = TabNavigator({
   Chapter: {
       screen: ChapterScreen,
@@ -59,7 +58,8 @@ const Tabs = TabNavigator({
       }
   },
 })
-
+*/
+// StackNavigator 中若没有 initialRouteName 默认显示第一个路由
 const Navigator = StackNavigator(
   {
     initialRouteName: {
@@ -86,14 +86,14 @@ const Navigator = StackNavigator(
     },
     Detail: {
       screen: DetailScreen,
-      navigationOptions: {
-        headerRight: (
-          <View style={{flexDirection: 'row',alignItems: 'center',paddingRight:10,}}>
-            <Icon name="icomoon-search" size={16} color="#666" style={{fontWeight:'bold',marginRight: 10}} />
-            <Icon name="icomoon-menu" size={22} color="#666" />
-          </View>
-        )
-      }
+      // navigationOptions: {
+      //   headerRight: (
+      //     <View style={{flexDirection: 'row',alignItems: 'center',paddingRight:10,}}>
+      //       <Icon name="iconfont-search" size={16} color="#666" style={{fontWeight:'bold',marginRight: 10}} />
+      //       <Icon name="iconfont-menu" size={22} color="#666" />
+      //     </View>
+      //   )
+      // }
     },
     Chapter: {
       screen: ChapterScreen,
@@ -103,10 +103,6 @@ const Navigator = StackNavigator(
     },
     Catalogue: {
       screen: CatalogueScene,
-    },
-    Test: {
-      path: 'people/:name',
-      screen: Test,
     },
   },
 );

@@ -11,7 +11,7 @@ import {
   Dimensions
 } from 'react-native';
 
-import API from '../../api.js';
+import API from 'qidian/src/config/api.js';
 
 let {height, width} = Dimensions.get('window');
 let itemWidth = (width-20)/4;
@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
     resizeMode: 'cover'
   },
   bookName:{
-    color: '#333', 
+    color: '#333',
     fontSize: 12,
     paddingTop: 5,
     paddingBottom: 3,
@@ -106,10 +106,8 @@ const styles = StyleSheet.create({
   },
   text:{
     lineHeight:35,
-    color: '#333', 
+    color: '#333',
     fontWeight:'bold',
     fontSize: 13,
   },
 });
-
-

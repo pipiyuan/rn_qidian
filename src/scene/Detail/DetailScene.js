@@ -2,7 +2,6 @@ import React, {
   Component
 } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -15,18 +14,24 @@ import {
   Dimensions,
   TouchableOpacity
 } from 'react-native';
-import Icon from 'react-native-vector-icons/icomoon';
+import Icon from 'qidian/src/assets/Fonts/iconfont';
 
-import API from '../../api.js';
+import API from 'qidian/src/config/api.js';
 import BookInfo from '../../common/bookInfo';
 // import BookListY from './BookListY.js';
 import BookListY from '../Home/BookListY.js';
 import Book from '../../common/book';
 
 export default class DetailScreen extends React.Component {
-  // static navigationOptions = {
-  //   title: 'home',
-  // }
+  static navigationOptions = {
+    // title: 'home',
+    headerRight: (
+      <View style={{flexDirection: 'row',alignItems: 'center',paddingRight:10,}}>
+        <Icon name="iconfont-search" size={16} color="#666" style={{fontWeight:'bold',marginRight: 10}} />
+        <Icon name="iconfont-menu" size={22} color="#666" />
+      </View>
+    )
+  }
   // static defaultProps = { // 设置默认熟悉
   //   test: 'value'
   // }
@@ -85,7 +90,7 @@ export default class DetailScreen extends React.Component {
         <ScrollView contentContainerStyle={styles.scrollView}>
           <BookInfo bookInfoData={this.state.bookInfoData} />
           <View style={styles.btnWrap}>
-            <TouchableOpacity onPress={() => navigation.navigate('Chapter',{id: this.state.bookId})} 
+            <TouchableOpacity onPress={() => navigation.navigate('Chapter',{id: this.state.bookId})}
                               style={[styles.btn,{backgroundColor:'#ed424b'}]}>
               <Text style={{color:'#fff',fontWeight:'bold'}}>免费试读</Text>
             </TouchableOpacity>
@@ -97,12 +102,12 @@ export default class DetailScreen extends React.Component {
           <View style={styles.info}>
             <Text style={{fontSize:12,lineHeight: 20,}}>{this.state.bookInfoData.intro}</Text>
           </View>
-          <TouchableOpacity style={styles.menu} 
+          <TouchableOpacity style={styles.menu}
                             onPress={() => navigation.navigate('Catalogue',{id: this.state.bookId})}>
             <Text style={{fontSize:16,fontWeight:'bold',color:'#333'}}>目录</Text>
             <View style={{flexDirection:'row',alignItems:'center'}}>
               <Text style={{fontSize:12,color:'#999',paddingRight:5}}>此连载已全部更新</Text>
-              <Icon name="icomoon-user" size={14} color="#999" />
+              <Icon name="iconfont-user" size={14} color="#999" />
             </View>
           </TouchableOpacity>
           <View style={{backgroundColor:'#eee',height:10,marginLeft:-10,marginRight:-10}}></View>
@@ -162,13 +167,3 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   }
 });
-
-
-
-
-
-
-
-
-
-

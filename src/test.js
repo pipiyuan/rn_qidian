@@ -15,7 +15,7 @@ import {
   Dimensions,
   TouchableOpacity
 } from 'react-native';
-import Icon from 'react-native-vector-icons/icomoon';
+import Icon from 'qidian/src/assets/Fonts/iconfont';
 let {height, width} = Dimensions.get('window');
 
 export default class SearchScene extends React.Component {
@@ -42,7 +42,7 @@ export default class SearchScene extends React.Component {
   }
 
   componentDidMount(){
-    
+
   }
 
   render() {
@@ -116,13 +116,3 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   }
 });
-
-
-
-
-
-
-
-
-
-

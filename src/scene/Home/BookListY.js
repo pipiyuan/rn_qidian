@@ -17,7 +17,7 @@ import {
   StackNavigator,
   TabNavigator
 } from 'react-navigation';
-import Icon from 'react-native-vector-icons/icomoon';
+import Icon from 'qidian/src/assets/Fonts/iconfont';
 
 let {height, width} = Dimensions.get('window');
 let itemWidth = width/4;
@@ -37,18 +37,18 @@ export default class BookItem extends React.Component {
   bookItem() {
   	let bookItemArr = this.props.booklistArr.map((value,index) => {
   		return (
-        <TouchableOpacity 
-          onPress={()=> this.props.navigation.navigate('Detail',{id: value.id})} 
-          key = { index } 
+        <TouchableOpacity
+          onPress={()=> this.props.navigation.navigate('Detail',{id: value.id})}
+          key = { index }
           style={styles.item}>
-  				<Image style = {styles.img} 
+  				<Image style = {styles.img}
                        source = {{uri:value.imageUrl}} />
                 <View style={styles.detail}>
 	  				<Text style={{fontSize: 15,fontWeight: 'bold',flex:1}}>{value.bookName}</Text>
 	  				<Text style={{fontSize: 12,paddingTop:5,color:'#999',height: 70}}>{value.intro}</Text>
 	  				<View style={styles.userLabel}>
 		  				<View style={styles.user}>
-		  					<Icon name="icomoon-user" size={14} color="#999" />
+		  					<Icon name="iconfont-user" size={14} color="#999" />
 		  					<Text style={{fontSize: 12, marginLeft:5, color: '#999'}}>{value.author}</Text>
 		  				</View>
 		  				<View style={styles.label}>
@@ -82,7 +82,7 @@ export default class BookItem extends React.Component {
 
 const styles = StyleSheet.create({
   booklistY: {
-    backgroundColor: '#fff', 
+    backgroundColor: '#fff',
     paddingLeft: 10,
     paddingRight: 10,
     paddingTop: 10,
@@ -124,7 +124,7 @@ const styles = StyleSheet.create({
   },
   labelTag: {
   	fontSize: 10,
-  	marginLeft:2, 
+  	marginLeft:2,
   	borderColor:'#eee',
   	borderWidth:1,
   	paddingTop:2,
@@ -134,6 +134,3 @@ const styles = StyleSheet.create({
   	color: '#999'
   }
 });
-
-
-

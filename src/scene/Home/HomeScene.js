@@ -2,7 +2,6 @@ import React, {
   Component
 } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
@@ -23,13 +22,13 @@ import {
 import Swiper from 'react-native-swiper';
 import BookList from './bookList.js';
 
-import api from '../../api.js';
+import API from 'qidian/src/config/api.js';
 import BookListY from './BookListY.js';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     // title: 'home',
-    headerBackTitle:'首页',
+    // headerBackTitle:'首页',
   }
   // static defaultProps = { // 设置默认熟悉
   //   test: 'value'
@@ -56,7 +55,7 @@ export default class HomeScreen extends React.Component {
     try {
       // 注意这里的await语句，其所在的函数必须有async关键字声明
       // let response = await fetch('http://39.108.14.248:3333/booklist');
-      let response = await fetch(`${api.qidian}/booklist?size=30&type=slide`);
+      let response = await fetch(`${API.qidian}/booklist?size=30&type=slide`);
       let responseJson = await response.json();
       this.setState({booklistData: responseJson.booklist})
 
@@ -125,10 +124,10 @@ export default class HomeScreen extends React.Component {
           {this.render_bookClassify()}
         </View>
         <View>
-          <BookList title="热门小说" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(0,6)} /> 
+          <BookList title="热门小说" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(0,6)} />
         </View>
         <View>
-          <BookList title="新书抢先" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(7,12)} /> 
+          <BookList title="新书抢先" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(7,12)} />
         </View>
         <View>
           <BookListY title="畅销完本" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(13,16)} />

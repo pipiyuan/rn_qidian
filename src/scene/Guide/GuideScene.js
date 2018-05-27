@@ -45,6 +45,16 @@ export default class extends Component {
     // },3000)
 
   }
+  pressBtn(){
+      storage.save({
+          key:'guideSceneStatus',
+          data: {
+              isHide_guideScene: true
+          },
+          expires: null
+      })
+      this.props.navigation.navigate('Home');
+  }
   guideItem(){
       let guideArr = imageArr.map((item,index)=>{
           let btn = null;
@@ -53,7 +63,7 @@ export default class extends Component {
                   <View style={styles.buttonP}>
                       <TouchableOpacity
                           style={styles.button}
-                          onPress={()=> this.props.navigation.navigate('Home')}
+                          onPress={()=> this.pressBtn()}
                       >
                           <Text style={styles.btnTxt} title=''>{item.btnTxt}</Text>
                       </TouchableOpacity>

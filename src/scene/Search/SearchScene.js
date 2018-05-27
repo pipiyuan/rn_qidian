@@ -13,21 +13,21 @@ import {
   Dimensions,
   TouchableOpacity
 } from 'react-native';
-import Icon from 'react-native-vector-icons/icomoon';
+import Icon from 'qidian/src/assets/Fonts/iconfont';
 let {height, width} = Dimensions.get('window');
 
 export default class SearchScene extends React.Component {
   static navigationOptions = ({ navigation, screenProps })=>({
     headerLeft: (
       <TouchableOpacity onPress={() => navigation.goBack()}>
-        <Icon name="icomoon-search" size={16} color="#666" style={{fontWeight:'bold',marginRight: 10}} />
+        <Icon name="iconfont-back" size={16} color="#666" style={{fontWeight:'bold',marginRight: 10}} />
       </TouchableOpacity>
     ),
     headerTitle:(
       <View style={{padding:5,paddingLeft:10, borderRadius:5,backgroundColor: '#f7f7f7',flexDirection:'row',alignItems:'center',width:width*0.7}}>
-        <Icon name="icomoon-search" size={14} color="#666" style={{fontWeight:'bold',marginRight: 10}} />
+        <Icon name="iconfont-search" size={20} color="#666" style={{fontWeight:'bold',marginRight: 10}} />
         <TextInput
-          style={{height: 20,flex:1,fontSize:12,padding:0}}
+          style={{height: 20,flex:1,fontSize:14,padding:0}}
           onChangeText={(text) => console.log()}
           placeholder={'请输入'}
           underlineColorAndroid={'transparent'}
@@ -64,7 +64,7 @@ export default class SearchScene extends React.Component {
   }
 
   componentDidMount(){
-    
+
   }
 
   render() {
@@ -133,13 +133,3 @@ const styles = StyleSheet.create({
     paddingBottom: 15,
   }
 });
-
-
-
-
-
-
-
-
-
-

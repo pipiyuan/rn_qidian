@@ -2,16 +2,10 @@ import React, {
   Component
 } from 'react';
 import {
-  AppRegistry,
   StyleSheet,
   Text,
   View,
-  TextInput,
-  ScrollView,
-  FlatList,
-  SectionList,
   Image,
-  StatusBar,
   Dimensions,
   Button,
 } from 'react-native';
@@ -19,7 +13,7 @@ import {
   StackNavigator,
   TabNavigator
 } from 'react-navigation';
-import Icon from 'react-native-vector-icons/icomoon';
+import Icon from 'qidian/src/assets/Fonts/iconfont';
 
 let {height, width} = Dimensions.get('window');
 let itemWidth = width/4;
@@ -34,7 +28,7 @@ export default class BookItem extends React.Component {
   	let bookLabels = bookInfoData.labels||[];
     return (
         <View style={styles.item}>
-				<Image style = {styles.img} 
+				<Image style = {styles.img}
                    source = {{uri:bookInfoData.imageUrl}} />
             <View style={styles.detail}>
   				<Text style={{fontSize: 15,fontWeight: 'bold'}}>{bookInfoData.bookName}</Text>
@@ -106,6 +100,3 @@ const styles = StyleSheet.create({
   	paddingRight:5,
   }
 });
-
-
-

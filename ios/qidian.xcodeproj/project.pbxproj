@@ -45,11 +45,11 @@
 		8170F76F08054F4899611E88 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 0C2C98F202ED467582AD34C0 /* Feather.ttf */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		9664187036ED4B3D8E6114FA /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D41C701B6DB470AA5CA51FB /* FontAwesome.ttf */; };
-		9D3C507BD8D042138E749EF7 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = C633446617A349828F91DA34 /* icomoon.ttf */; };
 		C20E5DC09B3F420EB9334D0A /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 0377D638E562417CBBF3FE89 /* libRNVectorIcons.a */; };
 		C6CC38864527433CA0D448CA /* Ionicons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = ED8E1A55B50745A1873C6926 /* Ionicons.ttf */; };
 		D4A50A35171D4F019097A4F8 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9F247DCFDF3E47AFBAA87E0B /* EvilIcons.ttf */; };
 		EE026D852003C1C100AE8DC9 /* Fonts in Resources */ = {isa = PBXBuildFile; fileRef = EE026D842003C1C100AE8DC9 /* Fonts */; };
+		EE21683020B9AFF900DFE37D /* FontAwesome.ttf in Resources */ = {isa = PBXBuildFile; fileRef = EE21682F20B9AFF900DFE37D /* FontAwesome.ttf */; };
 		F30CF6658A434AECA7A344CB /* MaterialCommunityIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 35F1B326D8684121983F4A95 /* MaterialCommunityIcons.ttf */; };
 /* End PBXBuildFile section */
 
@@ -298,9 +298,10 @@
 		9F247DCFDF3E47AFBAA87E0B /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		A802C4B46657449BA495D468 /* libSplashScreen.a */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = archive.ar; path = libSplashScreen.a; sourceTree = "<group>"; };
 		BAE6382F00C54D78808A19DF /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
-		C633446617A349828F91DA34 /* icomoon.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = icomoon.ttf; path = "../node_modules/react-native-vector-icons/Fonts/icomoon.ttf"; sourceTree = "<group>"; };
 		ED8E1A55B50745A1873C6926 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
 		EE026D842003C1C100AE8DC9 /* Fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Fonts; sourceTree = "<group>"; };
+		EE21682F20B9AFF900DFE37D /* FontAwesome.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = FontAwesome.ttf; path = Fonts/FontAwesome.ttf; sourceTree = "<group>"; };
+		EE65153220B9B3C30062F787 /* iconfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = iconfont.ttf; path = ../src/assets/Fonts/iconfont.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -519,6 +520,7 @@
 				00E356EF1AD99517003FC87E /* qidianTests */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				CB081A6D21B24CA1AE513264 /* Resources */,
+				EEFC25BA20B31C83008680CC /* Recovered References */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -538,8 +540,10 @@
 		CB081A6D21B24CA1AE513264 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				EE21682F20B9AFF900DFE37D /* FontAwesome.ttf */,
 				8C49A186EE174696B803A6A2 /* Entypo.ttf */,
 				9F247DCFDF3E47AFBAA87E0B /* EvilIcons.ttf */,
+				EE65153220B9B3C30062F787 /* iconfont.ttf */,
 				0C2C98F202ED467582AD34C0 /* Feather.ttf */,
 				8D41C701B6DB470AA5CA51FB /* FontAwesome.ttf */,
 				BAE6382F00C54D78808A19DF /* Foundation.ttf */,
@@ -549,7 +553,6 @@
 				2C06A3D466D24BB093A51519 /* Octicons.ttf */,
 				370A4BC1AE564C18B336A85A /* SimpleLineIcons.ttf */,
 				0116706EABF4487DA303E542 /* Zocial.ttf */,
-				C633446617A349828F91DA34 /* icomoon.ttf */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -560,6 +563,15 @@
 				EE2178D420025CAB003369A5 /* libRNVectorIcons.a */,
 			);
 			name = Products;
+			sourceTree = "<group>";
+		};
+		EEFC25BA20B31C83008680CC /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				0377D638E562417CBBF3FE89 /* libRNVectorIcons.a */,
+				A802C4B46657449BA495D468 /* libSplashScreen.a */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		EEFE753E20AF0E8A00447773 /* Products */ = {
@@ -959,10 +971,10 @@
 				C6CC38864527433CA0D448CA /* Ionicons.ttf in Resources */,
 				F30CF6658A434AECA7A344CB /* MaterialCommunityIcons.ttf in Resources */,
 				7B8B5CB804A7492A8AC36C29 /* MaterialIcons.ttf in Resources */,
+				EE21683020B9AFF900DFE37D /* FontAwesome.ttf in Resources */,
 				20F3696294804594B0A72D1D /* Octicons.ttf in Resources */,
 				5312899DC6B84A95BF375902 /* SimpleLineIcons.ttf in Resources */,
 				2DA342EC0F6A4D06A37F27CD /* Zocial.ttf in Resources */,
-				9D3C507BD8D042138E749EF7 /* icomoon.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1145,6 +1157,10 @@
 				);
 				INFOPLIST_FILE = qidian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Build/Products/Debug-iphonesimulator",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -1167,6 +1183,10 @@
 				);
 				INFOPLIST_FILE = qidian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Build/Products/Debug-iphonesimulator",
+				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
