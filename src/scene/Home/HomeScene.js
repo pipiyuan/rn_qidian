@@ -20,8 +20,9 @@ import {
   TabNavigator
 } from 'react-navigation';
 import Swiper from 'react-native-swiper';
-import BookList from './bookList.js';
+import Spinner  from 'react-native-loading-spinner-overlay';
 
+import BookList from './bookList.js';
 import API from 'qidian/src/config/api.js';
 import BookListY from './BookListY.js';
 
@@ -44,6 +45,7 @@ export default class HomeScreen extends React.Component {
         booklistData: [],
         dataList: [],
         refreshing: false,
+        loading: true
     }
   }
 
@@ -57,7 +59,7 @@ export default class HomeScreen extends React.Component {
       // let response = await fetch('http://39.108.14.248:3333/booklist');
       let response = await fetch(`${API.qidian}/booklist?size=30&type=slide`);
       let responseJson = await response.json();
-      this.setState({booklistData: responseJson.booklist})
+      this.setState({booklistData: responseJson.booklist, loading: false})
 
       // console.log(responseJson)
       // console.log(this.state.booklistData)
@@ -110,28 +112,36 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.container}>
-        <View style={styles.swiper_search}>
-          <Swiper height = {150} paginationStyle = {{bottom:10}} autoplay = {true}>
-              {this.render_swiper()}
-          </Swiper>
-          <TouchableOpacity activeOpacity={0.6} onPress={() => this.props.navigation.navigate('Search')}>
-            <View style={styles.search}>
-                <Text style={{color: '#aaa', fontSize: 12}}>超神机械师</Text>
+        {this.state.loading
+            ?
+            <Spinner visible={this.state.loading}
+                textContent={'loading'}
+                textStyle={{color: '#eee'}}
+                animation={'fade'}
+                overlayColor={'rgba(0, 0, 0, .1)'}
+            />
+            :
+            <View>
+                <View style={styles.swiper_search}>
+                    <Swiper height = {150} paginationStyle = {{bottom:10}} autoplay = {true}>
+                        {this.render_swiper()}
+                    </Swiper>
+                    <TouchableOpacity activeOpacity={0.6} onPress={() => this.props.navigation.navigate('Search')}>
+                        <View style={styles.search}>
+                            <Text style={{color: '#aaa', fontSize: 12}}>超神机械师</Text>
+                        </View>
+                    </TouchableOpacity>
+                </View>
+                <View style={styles.classify}>
+                    {this.render_bookClassify()}
+                </View>
+                <View>
+                    <BookList title="热门小说" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(0,6)} />
+                    <BookList title="新书抢先" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(7,12)} />
+                    <BookListY title="畅销完本" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(13,16)} />
+                </View>
             </View>
-          </TouchableOpacity>
-        </View>
-        <View style={styles.classify}>
-          {this.render_bookClassify()}
-        </View>
-        <View>
-          <BookList title="热门小说" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(0,6)} />
-        </View>
-        <View>
-          <BookList title="新书抢先" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(7,12)} />
-        </View>
-        <View>
-          <BookListY title="畅销完本" navigation={this.props.navigation} booklistArr={this.state.booklistData.slice(13,16)} />
-        </View>
+        }
       </ScrollView>
       )
       // return <Image style = {styles.img} source = {require('../../img/q1.jpeg')}/>

@@ -51,7 +51,7 @@ export default class extends Component {
           data: {
               isHide_guideScene: true
           },
-          expires: null
+          expires: 1000*60
       })
       this.props.navigation.navigate('Home');
   }
